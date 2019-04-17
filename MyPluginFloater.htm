@@ -1,0 +1,90 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//floater">
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>MyPlugin</title>
+
+	<style type="text/css">
+		body {
+			margin: 0px;
+			padding: 5px;
+		}
+
+		.mainBtn {
+			width: 200px;
+			height: 30px;
+		}
+
+	</style>
+
+	<script language="Javascript">
+
+	// platform - "Mac" or "Win"
+	function initialSize(platform) {
+		return "620, 240"; 
+	}
+
+	function minSize() {	
+		return "620, 240"; 
+	}
+
+	function isResizable() {
+		return false;
+	}
+	
+	function setUpFind_findNext() {
+
+		dreamweaver.setUpFind({searchString: "AAA", searchWhat: "document", matchCase: false, matchWholeWord: false, useRegularExpressions: false, searchSource: true});  
+		dreamweaver.findNext();   
+
+	}
+	function setUpComplexFind_findNext() {
+		dreamweaver.setUpComplexFind('<dwquery> \
+			  <queryparams matchcase="false" ignorewhitespace="false" useregexp="false" wholeword="false" textonly="false" /> \
+			  <find searchmode="document"> \
+			    <qtext qname="AAA" qraw="true" qtagname="[any tag]"></qtext> \
+			  </find> \
+			</dwquery>');   
+
+		dreamweaver.findNext();  
+	}
+
+	function setUpComplexFindReplace_replace() {
+		dreamweaver.setUpComplexFindReplace('<dwquery> \
+			<queryparams matchcase="false" ignorewhitespace="true" useregexp="false" wholeword="false" textonly="false" /> \
+			<find searchmode="document"> \
+			<qtext qname="AAA" qraw="true" qtagname="[any tag]"></qtext> \
+			</find> \
+			<replace action="replaceText" param1="CCC" param2=""/> \
+			</dwquery> ');   
+
+		dreamweaver.replace();  
+	}
+
+</script>
+
+</head>
+<body >
+	<p>I am goting to find AAA.</p>
+	<form name="myForm">
+		<table>
+			<tr>
+				<td>
+					<input type="button" class="mainBtn"  id="bt1" MMString:value="setUpFind_findNext" onclick="setUpFind_findNext();"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" class="mainBtn"  id="bt2" MMString:value="setUpComplexFind_findNext" onclick="setUpComplexFind_findNext();"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" class="mainBtn" id="bt3" MMString:value="setUpComplexFindReplace_replace" onclick="setUpComplexFindReplace_replace();"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
