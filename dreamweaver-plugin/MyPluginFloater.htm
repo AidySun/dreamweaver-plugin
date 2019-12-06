@@ -19,75 +19,39 @@
 	</style>
 
 	<script language="Javascript">
+// platform - "Mac" or "Win"
+function initialSize(platform) {
+	return "320, 240"; 
+}
 
-	// platform - "Mac" or "Win"
-	function initialSize(platform) {
-		return "620, 240"; 
-	}
+function minSize() {	
+	return "320, 240"; 
+}
 
-	function minSize() {	
-		return "620, 240"; 
-	}
+function isResizable() {
+	return false;
+}
 
-	function isResizable() {
-		return false;
-	}
-	
-	function setUpFind_findNext() {
+function showPopupMenu() {
+	var popupMenu = new PopupMenu(); 
+	popupMenu.addItem("Menu Item 1");
+	var r = popupMenu.popup();
+}
 
-		dreamweaver.setUpFind({searchString: "AAA", searchWhat: "document", matchCase: false, matchWholeWord: false, useRegularExpressions: false, searchSource: true});  
-		dreamweaver.findNext();   
-
-	}
-	function setUpComplexFind_findNext() {
-		dreamweaver.setUpComplexFind('<dwquery> \
-			  <queryparams matchcase="false" ignorewhitespace="false" useregexp="false" wholeword="false" textonly="false" /> \
-			  <find searchmode="document"> \
-			    <qtext qname="AAA" qraw="true" qtagname="[any tag]"></qtext> \
-			  </find> \
-			</dwquery>');   
-
-		dreamweaver.findNext();  
-	}
-
-	function setUpComplexFindReplace_replace() {
-		dreamweaver.setUpComplexFindReplace('<dwquery> \
-			<queryparams matchcase="false" ignorewhitespace="true" useregexp="false" wholeword="false" textonly="false" /> \
-			<find searchmode="document"> \
-			<qtext qname="AAA" qraw="true" qtagname="[any tag]"></qtext> \
-			</find> \
-			<replace action="replaceText" param1="CCC" param2=""/> \
-			</dwquery> ');   
-
-		dreamweaver.replace();  
-	}
-
-	function showPopupMenu() {
-		var popupMenu = new PopupMenu();
-		popupMenu.addItem("Menu Item 0");
-		var r = popupMenu.popup();
-	}
-
+function MM_callJS(jsStr) { //v2.0
+	return eval(jsStr)
+}
 </script>
 
 </head>
-<body onload="alert('hi')" >
-	<p>I am goting to find AAA.</p>
-	<form name="myForm">
+<body >
+	<form name="myForm" onSubmit="MM_callJS('a.js')">
 		<table>
 			<tr>
 				<td>
-					<input type="button" class="mainBtn"  id="bt1" MMString:value="setUpFind_findNext" onclick="setUpFind_findNext();"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="button" class="mainBtn"  id="bt2" MMString:value="setUpComplexFind_findNext" onclick="setUpComplexFind_findNext();"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="button" class="mainBtn" id="bt3" MMString:value="setUpComplexFindReplace_replace" onclick="setUpComplexFindReplace_replace();"/>
+
+					<p>Click the button below and then quite Dreamweeaver, a crash occurs on macOS.</p>
+					<p>&nbsp;</p>
 				</td>
 			</tr>
 			<tr>
