@@ -1,6 +1,6 @@
 function addMenu() {                 
     var menuStr = '\n<menu id="MyPlugin" name="MyPlugin">'+
-    '\n<menuitem id="Test" name="Test" file="MyPlugin_TestMenu.htm"/>'+
+    '\n<menuitem id="Test1" name="Test1" file="Commands/MyPluginCommand.htm"/>'+
     '\n</menu>';
 
     var menuFile = dreamweaver.getConfigurationPath() + "/Menus/Menus.xml";
